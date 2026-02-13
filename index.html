@@ -57,84 +57,107 @@ const load = (k, def) => { try { const v = localStorage.getItem("bt_"+k); return
 
 // ── Default Data ────────────────────────────────────────────────────────────
 const defaultFixedCharges = [
-  { id:1, name:"Loyer", amount:900, cat:"Logement", icon:"🏠" },
-  { id:2, name:"Assurance habitation", amount:37.58, cat:"Assurance", icon:"🛡️" },
-  { id:3, name:"Electricité", amount:130, cat:"Énergie", icon:"⚡" },
-  { id:4, name:"Internet", amount:29.99, cat:"Télécom", icon:"📡" },
-  { id:5, name:"Forfait Theau", amount:11.99, cat:"Télécom", icon:"📱" },
-  { id:6, name:"Forfait Mel", amount:8.99, cat:"Télécom", icon:"📱" },
-  { id:7, name:"Netflix", amount:15.49, cat:"Abonnement", icon:"🎬" },
-  { id:8, name:"Spotify", amount:10.99, cat:"Abonnement", icon:"🎵" },
-  { id:9, name:"iCloud", amount:2.99, cat:"Abonnement", icon:"☁️" },
-  { id:10, name:"Salle de sport", amount:39.99, cat:"Sport", icon:"🏋️" },
-  { id:11, name:"Crédit auto", amount:280, cat:"Crédit", icon:"🚗" },
-  { id:12, name:"Crédit conso", amount:350, cat:"Crédit", icon:"💳" },
-  { id:13, name:"Assurance auto", amount:85, cat:"Assurance", icon:"🚘" },
-  { id:14, name:"Mutuelle", amount:49.97, cat:"Santé", icon:"🏥" },
+  { id:1, name:"Dîme", amount:391.19, cat:"Religieux", icon:"⛪" },
+  { id:2, name:"Crédit Appartement", amount:282.93, cat:"Crédit", icon:"🏠" },
+  { id:3, name:"Charges", amount:326.84, cat:"Logement", icon:"🏢" },
+  { id:4, name:"Crédit Voiture", amount:608.69, cat:"Crédit", icon:"🚗" },
+  { id:5, name:"Assurance Habitation", amount:31.59, cat:"Assurance", icon:"🛡️" },
+  { id:6, name:"Assurance Voiture", amount:84.52, cat:"Assurance", icon:"🚘" },
+  { id:7, name:"Électricité", amount:76.40, cat:"Énergie", icon:"⚡" },
+  { id:8, name:"Mutuelle", amount:20.53, cat:"Santé", icon:"🏥" },
+  { id:9, name:"Carte Revolut", amount:16.99, cat:"Banque", icon:"💳" },
+  { id:10, name:"Crédit Travaux", amount:100.30, cat:"Crédit", icon:"🔨" },
+  { id:11, name:"Mutualité Socialiste", amount:13.00, cat:"Santé", icon:"🏥" },
 ];
 
 const defaultVariableCharges = [
-  { id:101, name:"Eau", amount:45, cat:"Énergie", icon:"💧" },
-  { id:102, name:"Gaz", amount:60, cat:"Énergie", icon:"🔥" },
-  { id:103, name:"Pharmacie bébé", amount:35, cat:"Santé", icon:"💊" },
-  { id:104, name:"Produits ménagers", amount:25, cat:"Maison", icon:"🧹" },
-  { id:105, name:"Entretien auto", amount:40, cat:"Transport", icon:"🔧" },
+  { id:101, name:"ChatGPT", amount:7.99, cat:"Abonnement", icon:"🤖" },
+  { id:102, name:"Couches", amount:57.15, cat:"Bébé", icon:"👶" },
+  { id:103, name:"Crédit PayPal", amount:224.00, cat:"Crédit", icon:"💳" },
+  { id:104, name:"myCanal", amount:39.99, cat:"Abonnement", icon:"📺" },
+  { id:105, name:"Amazon Prime", amount:69.90, cat:"Abonnement", icon:"📦" },
+  { id:106, name:"Apple One", amount:34.95, cat:"Abonnement", icon:"🍎" },
+  { id:107, name:"Forfait Theau", amount:49.99, cat:"Télécom", icon:"📱" },
+  { id:108, name:"Forfait Mel", amount:49.99, cat:"Télécom", icon:"📱" },
+  { id:109, name:"WiFi", amount:57.99, cat:"Télécom", icon:"📡" },
+  { id:110, name:"Withings", amount:9.99, cat:"Abonnement", icon:"⌚" },
 ];
 
 const defaultExpenses = {
   jan: [
-    {id:1,cat:"Shopping",name:"Sephora theau",amount:31.49,date:"05/01",preleve:true},
-    {id:2,cat:"Shopping",name:"Revolut",amount:50,date:"06/01",preleve:true},
-    {id:3,cat:"Courses",name:"Kerasthase",amount:21.70,date:"07/01",preleve:true},
-    {id:4,cat:"Courses",name:"Kimchi",amount:11.40,date:"07/01",preleve:true},
-    {id:5,cat:"Extra",name:"Coiffeur",amount:39,date:"08/01",preleve:true},
-    {id:6,cat:"Shopping",name:"Coiffeur shampoing",amount:37,date:"08/01",preleve:true},
-    {id:7,cat:"Courses",name:"Inter",amount:88.85,date:"10/01",preleve:true},
-    {id:8,cat:"Ellie",name:"Porte bebe",amount:29,date:"11/01",preleve:true},
-    {id:9,cat:"Ellie",name:"Lange + cotton",amount:51.22,date:"13/01",preleve:true},
-    {id:10,cat:"Courses",name:"Leclerc",amount:166.02,date:"14/01",preleve:true},
-    {id:11,cat:"Extra",name:"Purificateur",amount:499.98,date:"15/01",preleve:true},
-    {id:12,cat:"Extra",name:"Aesop",amount:211.40,date:"18/01",preleve:true},
-    {id:13,cat:"Courses",name:"Sauce",amount:98,date:"20/01",preleve:true},
-    {id:14,cat:"Transport",name:"Essence",amount:50.88,date:"21/01",preleve:true},
-    {id:15,cat:"Courses",name:"Cafe",amount:68.80,date:"22/01",preleve:true},
-    {id:16,cat:"Animaux",name:"Amazon",amount:58.09,date:"23/01",preleve:true},
-    {id:17,cat:"Extra",name:"Kine",amount:32.50,date:"24/01",preleve:true},
-    {id:18,cat:"Courses",name:"Inter",amount:53.13,date:"25/01",preleve:true},
-    {id:19,cat:"Restaurant",name:"Boulangerie",amount:9.70,date:"26/01",preleve:true},
-    {id:20,cat:"Courses",name:"Grand frais",amount:114.12,date:"28/01",preleve:true},
-    {id:21,cat:"Courses",name:"J'adire bio",amount:126.90,date:"29/01",preleve:true},
-    {id:22,cat:"Extra",name:"Medecin",amount:35,date:"29/01",preleve:true},
-    {id:23,cat:"Courses",name:"Inter",amount:100.70,date:"30/01",preleve:true},
-    {id:24,cat:"Extra",name:"Kine",amount:32,date:"31/01",preleve:true},
+    {id:1,cat:"Shopping",name:"Sephora theau",amount:31.49,date:"02/01",preleve:true},
+    {id:2,cat:"Shopping",name:"Revolut",amount:50.00,date:"02/01",preleve:true},
+    {id:3,cat:"Courses",name:"Kerasthase",amount:21.70,date:"03/01",preleve:true},
+    {id:4,cat:"Courses",name:"Kimchi",amount:11.40,date:"03/01",preleve:true},
+    {id:5,cat:"Extra",name:"Coiffeur",amount:39.00,date:"04/01",preleve:true},
+    {id:6,cat:"Shopping",name:"Coiffeur shampoing",amount:37.00,date:"04/01",preleve:true},
+    {id:7,cat:"Courses",name:"Inter",amount:88.85,date:"06/01",preleve:true},
+    {id:8,cat:"Ellie",name:"Porte bébé",amount:29.00,date:"07/01",preleve:true},
+    {id:9,cat:"Extra",name:"Top in fos",amount:1.75,date:"07/01",preleve:true},
+    {id:10,cat:"Extra",name:"Top in fos",amount:1.75,date:"07/01",preleve:true},
+    {id:11,cat:"Ellie",name:"Lange jetable et coton",amount:51.22,date:"08/01",preleve:true},
+    {id:12,cat:"Courses",name:"Leclerc",amount:166.02,date:"09/01",preleve:true},
+    {id:13,cat:"Extra",name:"Purificateur humidificateur",amount:499.98,date:"10/01",preleve:true},
+    {id:14,cat:"Extra",name:"Revolut",amount:48.00,date:"11/01",preleve:true},
+    {id:15,cat:"Courses",name:"Firewatch",amount:3.99,date:"11/01",preleve:true},
+    {id:16,cat:"Courses",name:"Mutualité socialiste",amount:13.50,date:"12/01",preleve:true},
+    {id:17,cat:"Extra",name:"Aesop",amount:211.40,date:"13/01",preleve:true},
+    {id:18,cat:"Extra",name:"Tenue de compte",amount:2.20,date:"13/01",preleve:true},
+    {id:19,cat:"Courses",name:"Sauce",amount:98.00,date:"14/01",preleve:true},
+    {id:20,cat:"Transport",name:"Essence",amount:50.88,date:"15/01",preleve:true},
+    {id:21,cat:"Courses",name:"Café",amount:68.80,date:"16/01",preleve:true},
+    {id:22,cat:"Animaux",name:"Amazon",amount:58.09,date:"17/01",preleve:true},
+    {id:23,cat:"Extra",name:"Lettre",amount:2.31,date:"17/01",preleve:true},
+    {id:24,cat:"Ellie",name:"Pharmacie",amount:10.00,date:"18/01",preleve:true},
+    {id:25,cat:"Extra",name:"Kiné",amount:32.50,date:"19/01",preleve:true},
+    {id:26,cat:"Courses",name:"Inter",amount:53.13,date:"20/01",preleve:true},
+    {id:27,cat:"Restaurant",name:"Boulangerie",amount:9.70,date:"21/01",preleve:true},
+    {id:28,cat:"Courses",name:"Inter",amount:52.75,date:"22/01",preleve:true},
+    {id:29,cat:"Courses",name:"Inter",amount:45.96,date:"22/01",preleve:true},
+    {id:30,cat:"Extra",name:"Kiné",amount:32.00,date:"23/01",preleve:true},
+    {id:31,cat:"Extra",name:"Vivalia",amount:45.00,date:"23/01",preleve:true},
+    {id:32,cat:"Extra",name:"Vivalia",amount:38.63,date:"24/01",preleve:true},
+    {id:33,cat:"Extra",name:"Vivalia",amount:12.96,date:"24/01",preleve:true},
+    {id:34,cat:"Courses",name:"Grand Frais",amount:114.12,date:"25/01",preleve:true},
+    {id:35,cat:"Courses",name:"J'adore bio",amount:126.90,date:"26/01",preleve:true},
+    {id:36,cat:"Extra",name:"Médecin",amount:35.00,date:"27/01",preleve:true},
+    {id:37,cat:"Courses",name:"Inter",amount:100.70,date:"28/01",preleve:true},
+    {id:38,cat:"Extra",name:"PayPal",amount:31.49,date:"29/01",preleve:true},
+    {id:39,cat:"Extra",name:"Kiné",amount:32.00,date:"29/01",preleve:true},
+    {id:40,cat:"Courses",name:"Inter",amount:98.58,date:"30/01",preleve:true},
+    {id:41,cat:"Extra",name:"Kiné",amount:32.00,date:"31/01",preleve:true},
   ],
   feb: [
-    {id:101,cat:"Extra",name:"Jimmy Dry",amount:63,date:"01/02",preleve:true},
+    {id:101,cat:"Extra",name:"Jimmy Dry",amount:63.00,date:"01/02",preleve:true},
     {id:102,cat:"Transport",name:"Essence",amount:52.36,date:"02/02",preleve:true},
-    {id:103,cat:"Extra",name:"Gyneco",amount:50,date:"03/02",preleve:true},
-    {id:104,cat:"Courses",name:"Inter",amount:47.48,date:"04/02",preleve:true},
-    {id:105,cat:"Shopping",name:"Amazon menage",amount:85.30,date:"05/02",preleve:true},
-    {id:106,cat:"Extra",name:"Undiz",amount:43.96,date:"06/02",preleve:true},
-    {id:107,cat:"Transport",name:"Essence",amount:41.73,date:"07/02",preleve:false},
-    {id:108,cat:"Restaurant",name:"Swile",amount:17.90,date:"08/02",preleve:false},
-    {id:109,cat:"Transport",name:"Navigo",amount:9.20,date:"08/02",preleve:false},
-    {id:110,cat:"Restaurant",name:"Swile",amount:3.70,date:"09/02",preleve:false},
-    {id:111,cat:"Restaurant",name:"Maxicoffee",amount:2.30,date:"09/02",preleve:false},
-    {id:112,cat:"Extra",name:"Concert",amount:166.50,date:"10/02",preleve:false},
-    {id:113,cat:"Transport",name:"Navigo",amount:4.60,date:"10/02",preleve:false},
-    {id:114,cat:"Courses",name:"Course",amount:26.65,date:"11/02",preleve:false},
-    {id:115,cat:"Extra",name:"Revolut",amount:27.96,date:"11/02",preleve:false},
-    {id:116,cat:"Restaurant",name:"Cafe",amount:7.00,date:"12/02",preleve:false},
-    {id:117,cat:"Restaurant",name:"Swiler",amount:31.10,date:"12/02",preleve:false},
-    {id:118,cat:"Ellie",name:"Pharmacie",amount:23.98,date:"13/02",preleve:false},
-    {id:119,cat:"Transport",name:"Esso",amount:38.99,date:"13/02",preleve:false},
-    {id:120,cat:"Ellie",name:"Vetement",amount:84.24,date:"14/02",preleve:false},
-    {id:121,cat:"Courses",name:"Inter",amount:116.81,date:"15/02",preleve:false},
-    {id:122,cat:"Restaurant",name:"Boucherie",amount:7.80,date:"16/02",preleve:false},
-    {id:123,cat:"Ellie",name:"Mr salon",amount:53,date:"17/02",preleve:false},
-    {id:124,cat:"Extra",name:"Kine",amount:32,date:"18/02",preleve:false},
-    {id:125,cat:"Ellie",name:"Pharmacie",amount:20.40,date:"19/02",preleve:false},
-    {id:126,cat:"Courses",name:"Inter",amount:52.41,date:"20/02",preleve:false},
+    {id:103,cat:"Extra",name:"Revolut",amount:38.00,date:"02/02",preleve:true},
+    {id:104,cat:"Extra",name:"Gynéco",amount:50.00,date:"03/02",preleve:true},
+    {id:105,cat:"Courses",name:"Inter",amount:47.48,date:"04/02",preleve:true},
+    {id:106,cat:"Shopping",name:"Amazon ménage",amount:85.30,date:"05/02",preleve:true},
+    {id:107,cat:"Extra",name:"Apple",amount:4.99,date:"05/02",preleve:true},
+    {id:108,cat:"Extra",name:"Undiz",amount:43.96,date:"06/02",preleve:true},
+    {id:109,cat:"Transport",name:"Essence",amount:41.73,date:"07/02",preleve:true},
+    {id:110,cat:"Restaurant",name:"Swile",amount:17.90,date:"08/02",preleve:true},
+    {id:111,cat:"Transport",name:"Navigo",amount:9.20,date:"08/02",preleve:true},
+    {id:112,cat:"Restaurant",name:"Swile",amount:3.70,date:"09/02",preleve:true},
+    {id:113,cat:"Restaurant",name:"Maxicoffee",amount:2.30,date:"09/02",preleve:true},
+    {id:114,cat:"Extra",name:"Concert (attente remboursement)",amount:166.50,date:"10/02",preleve:true},
+    {id:115,cat:"Transport",name:"Navigo",amount:4.60,date:"10/02",preleve:true},
+    {id:116,cat:"Courses",name:"Course",amount:26.65,date:"11/02",preleve:true},
+    {id:117,cat:"Extra",name:"Revolut",amount:27.96,date:"11/02",preleve:true},
+    {id:118,cat:"Restaurant",name:"Café",amount:7.00,date:"12/02",preleve:true},
+    {id:119,cat:"Extra",name:"Revolut",amount:9.31,date:"12/02",preleve:true},
+    {id:120,cat:"Restaurant",name:"Swile",amount:31.10,date:"12/02",preleve:true},
+    {id:121,cat:"Extra",name:"Tenue de compte",amount:2.25,date:"13/02",preleve:true},
+    {id:122,cat:"Ellie",name:"Pharmacie",amount:23.98,date:"13/02",preleve:true},
+    {id:123,cat:"Transport",name:"Esso",amount:38.99,date:"13/02",preleve:true},
+    {id:124,cat:"Ellie",name:"Vêtement",amount:84.24,date:"14/02",preleve:true},
+    {id:125,cat:"Courses",name:"Inter",amount:116.81,date:"15/02",preleve:true},
+    {id:126,cat:"Restaurant",name:"Boucherie",amount:7.80,date:"16/02",preleve:true},
+    {id:127,cat:"Ellie",name:"Mr Salon",amount:53.00,date:"17/02",preleve:true},
+    {id:128,cat:"Extra",name:"Kiné",amount:32.00,date:"18/02",preleve:true},
+    {id:129,cat:"Ellie",name:"Pharmacie",amount:20.40,date:"19/02",preleve:true},
+    {id:130,cat:"Courses",name:"Inter",amount:52.41,date:"20/02",preleve:true},
   ],
 };
 
@@ -143,7 +166,7 @@ const monthMeta = {
   feb: { label:"Février", income:5637.62, savings:1050, budgetExp:1520 },
 };
 
-const defaultBudgets = { Courses:500,Extra:150,Shopping:120,Ellie:200,Transport:300,Restaurant:200,Animaux:70,Sport:100,Santé:100,Autre:100 };
+const defaultBudgets = { Courses:500,Extra:150,Shopping:100,Ellie:200,Transport:300,Restaurant:200,Animaux:70,Sport:0,Santé:0,Autre:0 };
 
 const defaultBankAccounts = [
   { id:1,name:"Livret Theau",balance:4314.32,icon:"🏦" },
@@ -153,9 +176,11 @@ const defaultBankAccounts = [
 ];
 
 const savingsGoals = [
-  { name:"Maison",current:4314.32,target:12000,color:T.accent },
-  { name:"Ellie",current:1720,target:3000,color:T.pink },
-  { name:"Voyage",current:1147,target:2400,color:T.info },
+  { name:"Maison",current:5480.82,target:6000,color:T.accent },
+  { name:"Ellie",current:1360.00,target:600,color:T.pink },
+  { name:"Voyage",current:200.00,target:1200,color:T.info },
+  { name:"Extra",current:600.00,target:1200,color:T.purple },
+  { name:"Appartement",current:1220.16,target:1200,color:T.success },
 ];
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
@@ -503,7 +528,7 @@ const StatsScreen = ({data, txs, fixTotal, varTotal, budgets, month, setMonth}) 
   const totalExp = txs.reduce((s,t)=>s+t.amount,0);
   const ratio = [{name:"Fixes",value:fixTotal+varTotal,color:T.accent},{name:"Plaisir",value:totalExp,color:T.pink},{name:"Épargne",value:data.savings,color:T.success}];
   const totalR = ratio.reduce((s,r)=>s+r.value,0);
-  const trend = [{m:"Jan",income:5073,expenses:5047,savings:343},{m:"Fev",income:5638,expenses:3076,savings:1050}];
+  const trend = [{m:"Jan",income:5073,expenses:5045,savings:343},{m:"Fev",income:5638,expenses:3076,savings:1050}];
   return (
     <div style={{padding:"0 20px",overflowY:"auto",height:"calc(100vh - 90px)",scrollbarWidth:"none",paddingBottom:20}}>
       <div style={{padding:"16px 0 12px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
@@ -534,13 +559,32 @@ const StatsScreen = ({data, txs, fixTotal, varTotal, budgets, month, setMonth}) 
           {l:"Taux épargne",v:`${(data.savings/data.income*100).toFixed(0)}%`,s:"obj: 20%",c:T.success},
           {l:"Charges",v:`${((fixTotal+varTotal)/data.income*100).toFixed(0)}%`,s:"obj: 50%",c:T.accent},
           {l:"Plaisir restant",v:fmt(data.budgetExp-totalExp),s:totalExp>data.budgetExp?"dépassé":"restant",c:totalExp>data.budgetExp?T.danger:T.success},
-          {l:"Dettes/mois",v:fmt(1216.42),s:"3 crédits",c:T.warning},
+          {l:"Dettes/mois",v:fmt(991.92),s:"3 crédits",c:T.warning},
         ].map((m,i)=><div key={i} style={{background:T.card,borderRadius:16,padding:14,border:`1px solid ${T.border}`}}><p style={{color:T.textDim,fontSize:10,fontWeight:600,textTransform:"uppercase",letterSpacing:0.5,margin:0}}>{m.l}</p><p style={{color:m.c,fontSize:20,fontWeight:800,margin:"6px 0 2px"}}>{m.v}</p><p style={{color:T.textDim,fontSize:10,margin:0}}>{m.s}</p></div>)}
       </div>
       <div style={{height:20}}/>
     </div>
   );
 };
+
+// ── Default Paid States ──────────────────────────────────────────────────────
+const defaultPaidStates = {
+  jan: {
+    fixed:{1:true,2:true,3:true,4:true,5:true,6:true,7:true,8:true,9:true,10:true,11:true},
+    var:{101:true,102:true,103:true,104:true,105:true,106:true,107:true,108:true,109:true,110:true},
+  },
+  feb: {
+    fixed:{2:true,3:true,4:true,5:true,6:true,7:true,8:true,10:true,11:true},
+    var:{101:true,103:true,104:true,106:true,107:true,108:true,110:true},
+  },
+};
+
+// ── Cache Version (clears old fake data) ────────────────────────────────────
+const DATA_VERSION = "2.0";
+if (load("data_version", null) !== DATA_VERSION) {
+  Object.keys(localStorage).filter(k => k.startsWith("bt_")).forEach(k => localStorage.removeItem(k));
+  save("data_version", DATA_VERSION);
+}
 
 // ── MAIN APP ────────────────────────────────────────────────────────────────
 function App() {
@@ -553,8 +597,8 @@ function App() {
   const [febTx, setFebTx] = useState(() => load("feb_tx", defaultExpenses.feb));
   const [fixedCharges, setFixedCharges] = useState(() => load("fixed", defaultFixedCharges));
   const [varCharges, setVarCharges] = useState(() => load("variable", defaultVariableCharges));
-  const [fixedPaid, setFixedPaid] = useState(() => load("fixed_paid_"+month, {}));
-  const [varPaid, setVarPaid] = useState(() => load("var_paid_"+month, {}));
+  const [fixedPaid, setFixedPaid] = useState(() => load("fixed_paid_"+month, defaultPaidStates[month]?.fixed || {}));
+  const [varPaid, setVarPaid] = useState(() => load("var_paid_"+month, defaultPaidStates[month]?.var || {}));
   const [budgets] = useState(() => load("budgets", defaultBudgets));
   const [bank] = useState(() => load("bank", defaultBankAccounts));
 
@@ -567,7 +611,7 @@ function App() {
   useEffect(() => { save("var_paid_"+month, varPaid); }, [varPaid, month]);
 
   // Load paid status when month changes
-  useEffect(() => { setFixedPaid(load("fixed_paid_"+month, {})); setVarPaid(load("var_paid_"+month, {})); }, [month]);
+  useEffect(() => { setFixedPaid(load("fixed_paid_"+month, defaultPaidStates[month]?.fixed || {})); setVarPaid(load("var_paid_"+month, defaultPaidStates[month]?.var || {})); }, [month]);
 
   const txs = month === "jan" ? janTx : febTx;
   const setTxs = month === "jan" ? setJanTx : setFebTx;
