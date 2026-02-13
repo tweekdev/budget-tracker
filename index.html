@@ -56,32 +56,58 @@ const save = (k, v) => { try { localStorage.setItem("bt_"+k, JSON.stringify(v));
 const load = (k, def) => { try { const v = localStorage.getItem("bt_"+k); return v ? JSON.parse(v) : def; } catch(e){ return def; } };
 
 // ── Default Data ────────────────────────────────────────────────────────────
-const defaultFixedCharges = [
-  { id:1, name:"Dîme", amount:391.19, cat:"Religieux", icon:"⛪" },
-  { id:2, name:"Crédit Appartement", amount:282.93, cat:"Crédit", icon:"🏠" },
-  { id:3, name:"Charges", amount:326.84, cat:"Logement", icon:"🏢" },
-  { id:4, name:"Crédit Voiture", amount:608.69, cat:"Crédit", icon:"🚗" },
-  { id:5, name:"Assurance Habitation", amount:31.59, cat:"Assurance", icon:"🛡️" },
-  { id:6, name:"Assurance Voiture", amount:84.52, cat:"Assurance", icon:"🚘" },
-  { id:7, name:"Électricité", amount:76.40, cat:"Énergie", icon:"⚡" },
-  { id:8, name:"Mutuelle", amount:20.53, cat:"Santé", icon:"🏥" },
-  { id:9, name:"Carte Revolut", amount:16.99, cat:"Banque", icon:"💳" },
-  { id:10, name:"Crédit Travaux", amount:100.30, cat:"Crédit", icon:"🔨" },
-  { id:11, name:"Mutualité Socialiste", amount:13.00, cat:"Santé", icon:"🏥" },
-];
+const defaultFixedCharges = {
+  jan: [
+    { id:1, name:"Dîme", amount:391.19, cat:"Religieux", icon:"⛪" },
+    { id:2, name:"Crédit Appartement", amount:282.93, cat:"Crédit", icon:"🏠" },
+    { id:3, name:"Charges", amount:326.84, cat:"Logement", icon:"🏢" },
+    { id:4, name:"Crédit Voiture", amount:608.69, cat:"Crédit", icon:"🚗" },
+    { id:5, name:"Assurance Habitation", amount:31.59, cat:"Assurance", icon:"🛡️" },
+    { id:6, name:"Assurance Voiture", amount:84.52, cat:"Assurance", icon:"🚘" },
+    { id:7, name:"Électricité", amount:76.40, cat:"Énergie", icon:"⚡" },
+    { id:8, name:"Mutuelle", amount:20.53, cat:"Santé", icon:"🏥" },
+    { id:9, name:"Carte Revolut", amount:16.99, cat:"Banque", icon:"💳" },
+    { id:10, name:"Crédit Travaux", amount:100.30, cat:"Crédit", icon:"🔨" },
+    { id:11, name:"Mutualité Socialiste", amount:13.00, cat:"Santé", icon:"🏥" },
+  ],
+  feb: [
+    { id:1, name:"Dîme", amount:563.76, cat:"Religieux", icon:"⛪" },
+    { id:2, name:"Crédit Appartement", amount:282.93, cat:"Crédit", icon:"🏠" },
+    { id:3, name:"Charges", amount:326.84, cat:"Logement", icon:"🏢" },
+    { id:4, name:"Crédit Voiture", amount:608.69, cat:"Crédit", icon:"🚗" },
+    { id:5, name:"Assurance Habitation", amount:31.59, cat:"Assurance", icon:"🛡️" },
+    { id:6, name:"Assurance Voiture", amount:84.52, cat:"Assurance", icon:"🚘" },
+    { id:7, name:"Électricité", amount:55.13, cat:"Énergie", icon:"⚡" },
+    { id:9, name:"Carte Revolut", amount:16.99, cat:"Banque", icon:"💳" },
+    { id:10, name:"Crédit Travaux", amount:100.30, cat:"Crédit", icon:"🔨" },
+    { id:11, name:"Mutualité Socialiste", amount:13.50, cat:"Santé", icon:"🏥" },
+  ],
+};
 
-const defaultVariableCharges = [
-  { id:101, name:"ChatGPT", amount:7.99, cat:"Abonnement", icon:"🤖" },
-  { id:102, name:"Couches", amount:57.15, cat:"Bébé", icon:"👶" },
-  { id:103, name:"Crédit PayPal", amount:224.00, cat:"Crédit", icon:"💳" },
-  { id:104, name:"myCanal", amount:39.99, cat:"Abonnement", icon:"📺" },
-  { id:105, name:"Amazon Prime", amount:69.90, cat:"Abonnement", icon:"📦" },
-  { id:106, name:"Apple One", amount:34.95, cat:"Abonnement", icon:"🍎" },
-  { id:107, name:"Forfait Theau", amount:49.99, cat:"Télécom", icon:"📱" },
-  { id:108, name:"Forfait Mel", amount:49.99, cat:"Télécom", icon:"📱" },
-  { id:109, name:"WiFi", amount:57.99, cat:"Télécom", icon:"📡" },
-  { id:110, name:"Withings", amount:9.99, cat:"Abonnement", icon:"⌚" },
-];
+const defaultVariableCharges = {
+  jan: [
+    { id:101, name:"ChatGPT", amount:7.99, cat:"Abonnement", icon:"🤖" },
+    { id:102, name:"Couches", amount:57.15, cat:"Bébé", icon:"👶" },
+    { id:103, name:"Crédit PayPal", amount:224.00, cat:"Crédit", icon:"💳" },
+    { id:104, name:"myCanal", amount:39.99, cat:"Abonnement", icon:"📺" },
+    { id:105, name:"Amazon Prime", amount:69.90, cat:"Abonnement", icon:"📦" },
+    { id:106, name:"Apple One", amount:34.95, cat:"Abonnement", icon:"🍎" },
+    { id:107, name:"Forfait Theau", amount:49.99, cat:"Télécom", icon:"📱" },
+    { id:108, name:"Forfait Mel", amount:49.99, cat:"Télécom", icon:"📱" },
+    { id:109, name:"WiFi", amount:57.99, cat:"Télécom", icon:"📡" },
+    { id:110, name:"Withings", amount:9.99, cat:"Abonnement", icon:"⌚" },
+  ],
+  feb: [
+    { id:101, name:"ChatGPT", amount:7.99, cat:"Abonnement", icon:"🤖" },
+    { id:102, name:"Couches", amount:57.15, cat:"Bébé", icon:"👶" },
+    { id:103, name:"Crédit PayPal", amount:224.50, cat:"Crédit", icon:"💳" },
+    { id:104, name:"myCanal", amount:39.99, cat:"Abonnement", icon:"📺" },
+    { id:106, name:"Apple One", amount:34.95, cat:"Abonnement", icon:"🍎" },
+    { id:107, name:"Forfait Theau", amount:49.99, cat:"Télécom", icon:"📱" },
+    { id:108, name:"Forfait Mel", amount:49.99, cat:"Télécom", icon:"📱" },
+    { id:109, name:"WiFi", amount:57.99, cat:"Télécom", icon:"📡" },
+  ],
+};
 
 const defaultExpenses = {
   jan: [
@@ -574,13 +600,13 @@ const defaultPaidStates = {
     var:{101:true,102:true,103:true,104:true,105:true,106:true,107:true,108:true,109:true,110:true},
   },
   feb: {
-    fixed:{2:true,3:true,4:true,5:true,6:true,7:true,8:true,10:true,11:true},
-    var:{101:true,103:true,104:true,106:true,107:true,108:true,110:true},
+    fixed:{2:true,3:true,4:true,5:true,6:true,7:true,10:true,11:true},
+    var:{101:true,103:true,104:true,106:true,107:true,108:true},
   },
 };
 
 // ── Cache Version (clears old fake data) ────────────────────────────────────
-const DATA_VERSION = "2.0";
+const DATA_VERSION = "3.0";
 if (load("data_version", null) !== DATA_VERSION) {
   Object.keys(localStorage).filter(k => k.startsWith("bt_")).forEach(k => localStorage.removeItem(k));
   save("data_version", DATA_VERSION);
@@ -592,11 +618,13 @@ function App() {
   const [month, setMonth] = useState("feb");
   const [showAdd, setShowAdd] = useState(false);
 
-  // Persisted state
+  // Persisted state (per-month for charges, like expenses)
   const [janTx, setJanTx] = useState(() => load("jan_tx", defaultExpenses.jan));
   const [febTx, setFebTx] = useState(() => load("feb_tx", defaultExpenses.feb));
-  const [fixedCharges, setFixedCharges] = useState(() => load("fixed", defaultFixedCharges));
-  const [varCharges, setVarCharges] = useState(() => load("variable", defaultVariableCharges));
+  const [janFixed, setJanFixed] = useState(() => load("jan_fixed", defaultFixedCharges.jan));
+  const [febFixed, setFebFixed] = useState(() => load("feb_fixed", defaultFixedCharges.feb));
+  const [janVar, setJanVar] = useState(() => load("jan_var", defaultVariableCharges.jan));
+  const [febVar, setFebVar] = useState(() => load("feb_var", defaultVariableCharges.feb));
   const [fixedPaid, setFixedPaid] = useState(() => load("fixed_paid_"+month, defaultPaidStates[month]?.fixed || {}));
   const [varPaid, setVarPaid] = useState(() => load("var_paid_"+month, defaultPaidStates[month]?.var || {}));
   const [budgets] = useState(() => load("budgets", defaultBudgets));
@@ -605,8 +633,10 @@ function App() {
   // Persist on change
   useEffect(() => { save("jan_tx", janTx); }, [janTx]);
   useEffect(() => { save("feb_tx", febTx); }, [febTx]);
-  useEffect(() => { save("fixed", fixedCharges); }, [fixedCharges]);
-  useEffect(() => { save("variable", varCharges); }, [varCharges]);
+  useEffect(() => { save("jan_fixed", janFixed); }, [janFixed]);
+  useEffect(() => { save("feb_fixed", febFixed); }, [febFixed]);
+  useEffect(() => { save("jan_var", janVar); }, [janVar]);
+  useEffect(() => { save("feb_var", febVar); }, [febVar]);
   useEffect(() => { save("fixed_paid_"+month, fixedPaid); }, [fixedPaid, month]);
   useEffect(() => { save("var_paid_"+month, varPaid); }, [varPaid, month]);
 
@@ -615,6 +645,10 @@ function App() {
 
   const txs = month === "jan" ? janTx : febTx;
   const setTxs = month === "jan" ? setJanTx : setFebTx;
+  const fixedCharges = month === "jan" ? janFixed : febFixed;
+  const setFixedCharges = month === "jan" ? setJanFixed : setFebFixed;
+  const varCharges = month === "jan" ? janVar : febVar;
+  const setVarCharges = month === "jan" ? setJanVar : setFebVar;
   const data = monthMeta[month];
   const fixTotal = fixedCharges.reduce((s,c)=>s+c.amount,0);
   const varTotal = varCharges.reduce((s,c)=>s+c.amount,0);
